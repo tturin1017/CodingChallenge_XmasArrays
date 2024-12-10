@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.project.TestDay1" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-12-10T18:03:52" hostname="codespaces-a0ea89" time="0.071">
+  <properties/>
+  <testcase name="testGenerateElfNameHasValidSuffix()" classname="com.example.project.TestDay1" time="0.044"/>
+  <testcase name="testGenerateElfNameThrowsExceptionForEmptyName()" classname="com.example.project.TestDay1" time="0.015"/>
+  <testcase name="testGenerateElfNameContainsName()" classname="com.example.project.TestDay1" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
