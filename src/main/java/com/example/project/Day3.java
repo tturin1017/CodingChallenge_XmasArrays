@@ -11,7 +11,7 @@ public class Day3 {
         // Initialize grid with hypehns this will create a size by size grid 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                grid[i][j] = "-";
+                grid[i][j] = " ";
             }
         }
 
@@ -55,7 +55,17 @@ public class Day3 {
     public static void main(String[] args) {
         int size = 7; // Choose odd size for symmetry
         String[][] snowflake = generateSnowflake(size);
-
+        String[][] check = {
+            {"*"," "," ","*"," "," ","*"},
+            {" ","*"," ","*"," ","*"," "},
+            {" "," ","*","*","*"," "," "},
+            {"*","*","*","*","*","*","*"},
+            {" "," ","*","*","*"," "," "},
+            {" ","*"," ","*"," ","*"," "},
+            {"*"," "," ","*"," "," ","*"}
+                        };
         printSnowflake(snowflake);
+        System.out.println();
+        printSnowflake(check);
     }
 }

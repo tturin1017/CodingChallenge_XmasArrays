@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.project.TestDay2" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-11T16:14:17" hostname="codespaces-a0ea89" time="0.021">
-  <properties/>
-  <testcase name="testSortNames1()" classname="com.example.project.TestDay2" time="0.021"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,6 +1,10 @@
 package com.example.project;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 public class TestDay3 {
@@ -14,7 +18,7 @@ public class TestDay3 {
         assertEquals(size, snowflake[0].length, "Snowflake grid should have the correct number of columns");
 
         // Check if the center is marked with a star
-        assertEquals('*', snowflake[size / 2][size / 2], "Center of the snowflake should be a star");
+        assertEquals("*", snowflake[size / 2][size / 2], "Center of the snowflake should be a star");
     }
 
     @Test
@@ -29,16 +33,18 @@ public class TestDay3 {
 
     @Test
     public void testGenerateSnowflakeDesign() {
-        int size = 9; // Small odd size
+        int size = 7; // Small odd size
         String[][] snowflake = Day3.generateSnowflake(size);
-        String[][] check = {{"*","-","-","*","-","-","*"},
-                            {"*","-","*","-","*","-"},
-                            {"-","-","*","*","*","-","-"},
-                            {"*","*","*","*","*","*","*"},
-                            {"-","-","*","*","*","-","-"},
-                            {"*","-","*","-","*","-"},
-                            {"*","-","-","*","-","-","*"}};
-        assertEquals(snowflake, snowflake[0].length, "Snowflake grid should have the correct number of columns");
+        String[][] check = {
+            {"*"," "," ","*"," "," ","*"},
+            {" ","*"," ","*"," ","*"," "},
+            {" "," ","*","*","*"," "," "},
+            {"*","*","*","*","*","*","*"},
+            {" "," ","*","*","*"," "," "},
+            {" ","*"," ","*"," ","*"," "},
+            {"*"," "," ","*"," "," ","*"}
+                        };
+        assertTrue(Arrays.deepEquals(snowflake, check), "Snowflake design is incorrect");
     }
 
 }
