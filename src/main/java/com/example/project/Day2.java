@@ -12,7 +12,7 @@ public class Day2{
         String [] naughty_list = new String[12];
         int naughty_index = 0;
         String nice_or_naughty = "";
-        for(int i=0; i<santa_list.length;i++){
+        for(int i=0; i<names.length;i++){
             nice_or_naughty = nn[r.nextInt(2)];
             if(nice_or_naughty.equals("nice")){
                 nice_list[nice_index]=names[i];
@@ -27,4 +27,11 @@ public class Day2{
         answer[1] = naughty_list;
         return answer;
     }
+
+    // public static void main(String[] args) {
+    //     String[][] result = Day2.nameSort(names);
+    //     for(String item : result[0]){
+    //         System.out.println(item);
+    //     }
+    // }
 }

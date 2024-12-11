@@ -14,12 +14,18 @@ public class TestDay2 {
 
         //assert results
         assertNotNull(result[0],"Nice list should not be null");
-        assertNotNull(results[1], "Naughty list should not be null");
+        assertNotNull(result[1], "Naughty list should not be null");
 
         //Verify that all names are in one of the two lists
-        int totalNames = result[0].length + result[1].length;
+        int nice_count = 0;
+        int naughty_count = 0;
+        for(int i=0; i<12; i++){
+            if(result[0][i]!=null){nice_count++;}
+            if(result[1][i]!=null){naughty_count++;}
+        }
+
+
+        int totalNames = nice_count+naughty_count;
         assertEquals(names.length,totalNames, "All names should be sorted into nice or naughty lists");
-
     }
-
 }
