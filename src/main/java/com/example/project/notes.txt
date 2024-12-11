@@ -29,6 +29,7 @@ mathematica
 Copy code
 Nice List: Alice, Charlie  
 Naughty List: Bob, Eve
+
 Day 3: Snowflake Pattern Generator
 Objective: Print a snowflake-like pattern using stars (*).
 
