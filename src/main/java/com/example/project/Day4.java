@@ -6,7 +6,7 @@ public class Day4 {
      // Reindeer class to represent each reindeer in the race
     private static String[] reindeer_names = {"Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"};
 
-    private static class Reindeer {
+    public static class Reindeer {
         private String name;
         private int speed; // in units per second
         private int distanceTraveled;
@@ -23,16 +23,24 @@ public class Day4 {
             this.restDur = restDur; 
             this.timeLeft = runDur;
             this.isRunning = true;
+            this.distanceTraveled = 0;
         }
 
         public String getName(){
             return this.name;
         }
+        public void getInfo(){
+            System.out.println("Name= "+this.name+ "\nSpeed = "+this.speed+"\nrun duration="+this.runDur+ "\nrest duration="+this.restDur+"\nDistance Traveled="+this.getDistanceTraveled()+"\n");
+        }
+
+        public int getDistanceTraveled(){
+            return this.distanceTraveled;
+        }
         
 
         public void simulateSecond(){
             if(isRunning){
-                distanceTraveled+=speed;
+                this.distanceTraveled+=speed;
             }
             timeLeft--;
             if(timeLeft == 0){//done running or resting
@@ -48,23 +56,43 @@ public class Day4 {
         
     }
 
+    public static String simulateRace(int time){
+        Random r = new Random();
+        Reindeer[] reindeers = new Reindeer[reindeer_names.length];
+        //create reindeers
+        for(int i=0;i<reindeer_names.length;i++){
+            //create a new reindeer and add it to reindeer list
+            reindeers[i]=new Reindeer(reindeer_names[i],r.nextInt(100,501),r.nextInt(1,61),r.nextInt(1,61));
+           
+        }
+
+        String winner = "";
+        int max = 0;
+        for(int i=0; i<time;i++){ // each iteration is a second
+            for(int j=0;j<reindeers.length;j++){ //loop through each reindeer to simulate a second
+                reindeers[j].simulateSecond();
+            }
+
+            if(i==time-1){ //after end of last second, deteremine which reindeer got the farthest
+                for(Reindeer reindeer: reindeers){
+                    reindeer.getInfo();
+                    if(reindeer.getDistanceTraveled()>max){
+                        winner=reindeer.getName();
+                        max=reindeer.getDistanceTraveled();
+                    }
+
+                }
+            }
+        }
+        return winner+" with a distance of "+max + " feet";
+    }
+    public static void main(String[] args) {
+        System.out.println(Day4.simulateRace(10));
+
+    }
+
  
     }
 
-    public static void main(String[] args) {
-        // Create some reindeer with random speeds
-        Reindeer[] reindeers = {
-            new Reindeer("Rudolph", 5),
-            new Reindeer("Dasher", 6),
-            new Reindeer("Dancer", 4),
-            new Reindeer("Prancer", 7),
-            new Reindeer("Vixen", 8)
-        };
 
-        // Run the race for 10 seconds
-        int raceTime = 10;
-        String winner = simulateRace(reindeers, raceTime);
 
-        System.out.println("The winner is: " + winner);
-    }
-}
