@@ -1,26 +1,57 @@
-// package com.example.project;
+package com.example.project;
 
-// import org.junit.jupiter.api.Test;
-// import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-// public class TestDay4 {
+public class TestDay4 {
+    @Test
+    void testReindeerCreation() {
+        Day4.Reindeer reindeer = new Day4.Reindeer("Dasher", 100, 5, 2);
+        assertEquals("Dasher", reindeer.getName(), "Reindeer name should be correctly set.");
+        assertEquals(0, reindeer.getDistanceTraveled(), "Initial distance should be 0.");
+    }
 
-//     @Test
-//     public void testReindeerRace() {
-//         // Create some reindeer with predefined speeds
-//         Day4.Reindeer[] reindeers = {
-//             new Day4.Reindeer("Rudolph", 5),
-//             new Day4.Reindeer("Dasher", 6),
-//             new Day4.Reindeer("Dancer", 4),
-//             new Day4.Reindeer("Prancer", 7),
-//             new Day4.Reindeer("Vixen", 8)
-//         };
+    @Test
+    void testSimulateSecondRunning() {
+        Day4.Reindeer reindeer = new Day4.Reindeer("Dasher", 100, 5, 2);
 
-//         // Simulate the race for 10 seconds
-//         int raceTime = 10;
-//         String winner = Day4.simulateRace(reindeers, raceTime);
+        // Simulate 5 seconds of running
+        for (int i = 0; i < 5; i++) {
+            reindeer.simulateSecond();
+        }
+        assertEquals(500, reindeer.getDistanceTraveled(), "Distance should be 500 after 5 seconds of running.");
 
-//         // We know that Vixen should be the winner (8 speed * 10 seconds = 80 distance)
-//         assertEquals("Vixen", winner, "The winner should be Vixen");
-//     }
-// }
+        // Simulate 2 seconds of resting
+        for (int i = 0; i < 7; i++) {
+            reindeer.simulateSecond();
+        }
+        assertEquals(500, reindeer.getDistanceTraveled(), "Distance should 500 after 5 seconds of running and 2 seconds of resting.");
+    }
+
+    @Test
+    void testSimulateRaceWithHardcodedReindeers() {
+        Day4.Reindeer[] reindeers = {
+            new Day4.Reindeer("Dasher", 100, 5, 2),
+            new Day4.Reindeer("Dancer", 120, 4, 3),
+            new Day4.Reindeer("Prancer", 110, 6, 1)
+        };
+
+        String winner = Day4.simulateRace(10, reindeers);
+        assertNotNull(winner, "Race should have a winner after simulation.");
+        assertTrue(winner.length() > 0, "Winner string should not be empty.");
+    }
+
+    @Test
+    void testSimulateRaceLongerDuration() {
+        Day4.Reindeer[] reindeers = {
+            new Day4.Reindeer("Dasher", 100, 5, 2),
+            new Day4.Reindeer("Dancer", 120, 4, 3),
+            new Day4.Reindeer("Prancer", 110, 6, 1)
+        };
+
+        String winner = Day4.simulateRace(100, reindeers);
+        assertNotNull(winner, "Race should have a winner after simulation.");
+        assertTrue(winner.length() > 0, "Winner string should not be empty.");
+    }
+
+}

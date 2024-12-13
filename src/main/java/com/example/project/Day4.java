@@ -1,5 +1,6 @@
 package com.example.project;
 
+
 import java.util.Random;
 
 public class Day4 {
@@ -52,20 +53,20 @@ public class Day4 {
                 }
             }
         }
-
-        
     }
 
-    public static String simulateRace(int time){
+    public static void createReindeers(){
         Random r = new Random();
         Reindeer[] reindeers = new Reindeer[reindeer_names.length];
         //create reindeers
         for(int i=0;i<reindeer_names.length;i++){
             //create a new reindeer and add it to reindeer list
-            reindeers[i]=new Reindeer(reindeer_names[i],r.nextInt(100,501),r.nextInt(1,61),r.nextInt(1,61));
+            reindeers[i]=new Reindeer(reindeer_names[i],r.nextInt(401)+100,r.nextInt(60)+1,r.nextInt(60)+1);
            
         }
+    }
 
+    public static String simulateRace(int time, Reindeer[] reindeers){
         String winner = "";
         int max = 0;
         for(int i=0; i<time;i++){ // each iteration is a second
@@ -84,15 +85,22 @@ public class Day4 {
                 }
             }
         }
-        return winner+" with a distance of "+max + " feet";
+        return winner;
     }
     public static void main(String[] args) {
-        System.out.println(Day4.simulateRace(10));
+        Reindeer reindeer = new Reindeer("Dasher", 100, 5, 2);
+
+
+        // Simulate 2 seconds of resting
+        for (int i = 0; i < 7; i++) {
+            reindeer.simulateSecond();
+            reindeer.getInfo();
+        }
 
     }
 
  
-    }
+}
 
 
 
