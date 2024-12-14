@@ -88,14 +88,6 @@ public class Day4 {
         return winner;
     }
     public static void main(String[] args) {
-        Reindeer reindeer = new Reindeer("Dasher", 100, 5, 2);
-
-
-        // Simulate 2 seconds of resting
-        for (int i = 0; i < 7; i++) {
-            reindeer.simulateSecond();
-            reindeer.getInfo();
-        }
 
     }
 
