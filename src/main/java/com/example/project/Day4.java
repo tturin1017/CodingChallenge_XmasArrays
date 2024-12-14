@@ -1,6 +1,4 @@
 package com.example.project;
-
-
 import java.util.Random;
 
 public class Day4 {

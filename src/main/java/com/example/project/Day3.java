@@ -41,7 +41,7 @@ public class Day3 {
         return grid;
     }
 
-    // Prints the snowflake in ASCII
+    // Prints the snowflake 
     public static void printSnowflake(String[][] snowflake) {
         for (String[] row : snowflake) {
             for (String cell : row) {

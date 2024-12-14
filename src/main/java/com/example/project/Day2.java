@@ -1,6 +1,7 @@
 
 package com.example.project;
 import java.util.Random;
+
 public class Day2{
     private static String[] names = {"John","Matt","Lucy","Nina","Roxy","Andrew","Henry","Donnie","Sasha","Mohammad","Elsa","Ruby"};
     private static String[] nn = {"naughty", "nice"};
@@ -28,10 +29,7 @@ public class Day2{
         return answer;
     }
 
-    // public static void main(String[] args) {
-    //     String[][] result = Day2.nameSort(names);
-    //     for(String item : result[0]){
-    //         System.out.println(item);
-    //     }
-    // }
+    public static void main(String[] args) {
+
+    }
 }
