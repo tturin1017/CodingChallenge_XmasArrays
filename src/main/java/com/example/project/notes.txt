@@ -4,10 +4,10 @@ Objective: Create a program that generates festive elf names based on user input
 Requirements:
 
 Ask the user to input their first name.
-Use a predefined array of elf suffixes (e.g., ["Glitter", "Chocolate","Tiny","Snowflake","Frosty"]).
-Combine the user's first name with a randomly chosen elf suffix (see array above) to generate an elf name.
+Use a predefined array of elf names  (e.g., ["Glitter", "Chocolate","Tiny","Snowflake","Frosty"]).
+Combine the user's first name with a randomly chosen elf name (see array above) to generate a new name.
 
-Throw Exception for name if it is null or empty
+Throw Exception for name if it is null or empty. You will have to research how to catch an IllegalArgumentException
 Example:
 In: John
 Out: Your elf name is: Glitter John
