@@ -26,6 +26,8 @@ public class Day4 {
     public static String simulateRace(int time, Reindeer[] reindeers){ //you will be tested on this method
         return "name of winner";
     }
+
+    
     public static void main(String[] args) { // for testing purposed
 
     }
